@@ -110,6 +110,10 @@ function brute_Force_Attack_Clicked(){
     document.getElementById('printBruteForce').innerHTML = combinedArray.toUpperCase();
 }
 
+function clear_brute_force() {
+    document.getElementById('printBruteForce').innerHTML = "";
+}
+
 function decipher_Clicked() {
     var retainFormatting = document.getElementById('formatCheckbox').checked;
     var cipher = document.getElementById("cipherSelect");
