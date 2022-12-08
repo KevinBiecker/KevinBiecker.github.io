@@ -87,22 +87,26 @@ function brute_Force_Attack_Clicked(){
     }
     switch (cipher.value) {
         case "Caesar":
+            shiftNumberStr = "";
             for(let i = 1; i <= 26; i++) {
                 output.push(caeserCipher(i, input, "decrypt"));
             }
             for(i = 0; i < output.length - 1; i++){
-                combinedArray += (i+1) + ".  " + output[i].replace(/(.{5})/g,"$1 ") + "<br>";
+                shiftNumberStr = (i+1).toString();
+                combinedArray += shiftNumberStr.bold() + ".  " + output[i].replace(/(.{5})/g,"$1 ") + "<br>";
             }
             break;
         case "Multiplicative":
             const multiOptions = [1,3,5,7,9,11,15,17,19,21,23,25]
+            multiOptionBold = "";
             var option = "";
             for(let x = 0; x < 12; x++){
                 var multiShift = multiOptions[x];
                 output.push(affine(multiShift, 0, input, "decrypt"));
             }
             for(i = 0; i < output.length; i++){
-                combinedArray += multiOptions[i] + ".  " + output[i].replace(/(.{5})/g,"$1 ") + "<br>";
+                multiOptionBold = multiOptions[i].toString();
+                combinedArray += multiOptionBold.bold() + ".  " + output[i].replace(/(.{5})/g,"$1 ") + "<br>";
             }
             break;
         default:
